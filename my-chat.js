@@ -354,13 +354,28 @@ export class MyChatWidget extends LitElement {
   }
 
   logout() {
-    if (this.msal && this.account) {
-      this.msal.logoutPopup({ account: this.account }).catch(console.warn);
-    }
+    // Clear local authentication state
     this.token = null;
     this.account = null;
     this.isGuest = true;
-    this.addSystemMessage('👋 Logged out; back to guest mode.');
+
+    // Optionally clear MSAL cache (without popup)
+    if (this.msal) {
+      try {
+        // Clear the cache silently instead of using popup
+        const accounts = this.msal.getAllAccounts();
+        if (accounts.length > 0) {
+          // Clear session storage cache
+          this.msal.clearCache();
+          console.log('✅ MSAL cache cleared');
+        }
+      } catch (error) {
+        console.log('Cache clear warning:', error.message);
+      }
+    }
+
+    this.addSystemMessage('👋 Logged out successfully. You\'re now in guest mode.');
+    this.requestUpdate();
   }
 
   /* ------------------------- messaging ------------------------ */
