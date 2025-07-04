@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hikru | AI Chat Portal POC</title>
+  <title>TechCorp Solutions | AI Knowledge Assistant Demo</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <!-- Tailwind CSS bundle (local) -->
   <link rel="stylesheet" href="./dist/styles.css">
@@ -12,13 +12,13 @@
   <!-- ================= HEADER ================= -->
   <header id="top" class="bg-[var(--clr-primary)] text-white">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4 py-4">
-      <a href="#top" class="text-2xl font-semibold tracking-wide">Hikru</a>
+      <a href="#top" class="text-2xl font-semibold tracking-wide">TechCorp Solutions</a>
       <nav>
         <ul class="flex gap-6 text-base font-medium">
           <li><a href="#intro" class="hover:opacity-80">Home</a></li>
-          <li><a href="#features" class="hover:opacity-80">Features</a></li>
-          <li><a href="#chat" class="hover:opacity-80">Chat Demo</a></li>
-          <li><a href="#contact" class="hover:opacity-80">Contact</a></li>
+          <li><a href="#features" class="hover:opacity-80">Demo Guide</a></li>
+          <li><a href="#chat" class="hover:opacity-80">Try It</a></li>
+          <li><a href="#contact" class="hover:opacity-80">About</a></li>
         </ul>
       </nav>
     </div>
@@ -27,34 +27,61 @@
   <!-- ================ HERO / INTRO ================ -->
   <section id="intro" class="relative overflow-hidden py-20 bg-gradient-to-br from-[var(--clr-primary)] to-[var(--clr-primary-dark)] text-white">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Proof of Concept — AI Chat Portal</h1>
-      <p class="text-lg md:text-xl mb-8">Show clients how an <strong>AI‑powered chatbot</strong> can be embedded in their own site with instant guest access and enterprise‑grade Azure AD authentication.</p>
-      <a href="#chat" class="inline-block bg-white/90 text-[var(--clr-primary-dark)] font-semibold px-8 py-3 rounded-lg shadow hover:bg-white transition">Try the Demo</a>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">TechCorp Solutions — AI Knowledge Assistant</h1>
+      <p class="text-lg md:text-xl mb-8">Experience an enterprise <strong>AI‑powered knowledge assistant</strong> with dual access modes: instant guest queries for public information and Azure AD authentication for confidential company data.</p>
+      <a href="#chat" class="inline-block bg-white/90 text-[var(--clr-primary-dark)] font-semibold px-8 py-3 rounded-lg shadow hover:bg-white transition">Try the Demo</a>
     </div>
   </section>
 
-  <!-- ============ HIGHLIGHTS ============ -->
+  <!-- ============ DEMO GUIDE ============ -->
   <section id="features" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
       <div>
-        <h2 class="text-3xl font-bold mb-4">What’s inside this POC?</h2>
-        <ul class="space-y-4 text-lg list-disc list-inside">
-          <li><strong>Guest Mode</strong> — ask questions without signing in.</li>
-          <li><strong>Azure AD Login</strong> — full OAuth 2.0 + PKCE flow.</li>
-          <li><strong>Session Persistence</strong> — conversations survive login.</li>
-          <li><strong>Seamless Switch</strong> — move from guest to authenticated instantly.</li>
-          <li><strong>&lt;my-chat-widget&gt;</strong> ready to embed in any CMS.</li>
-          <li><strong>Responsive UI</strong> built with utility‑first Tailwind CSS.</li>
-        </ul>
+        <h2 class="text-3xl font-bold mb-4">What can you ask?</h2>
+        
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold mb-3 text-blue-600">👤 Guest Mode (Public Info)</h3>
+          <ul class="space-y-2 text-base list-disc list-inside">
+            <li>"What products does TechCorp Solutions offer?"</li>
+            <li>"How much does CloudAnalytics Pro cost?"</li>
+            <li>"What are the system requirements?"</li>
+            <li>"Where are TechCorp's offices located?"</li>
+            <li>"How do I contact customer support?"</li>
+            <li>"What integrations are available?"</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-green-600">🔐 Authenticated Mode (Internal Info)</h3>
+          <ul class="space-y-2 text-base list-disc list-inside">
+            <li>"What is our current ARR growth rate?"</li>
+            <li>"What's in the strategic business plan for 2025?"</li>
+            <li>"How does our sales compensation work?"</li>
+            <li>"What are the engineering technology standards?"</li>
+            <li>"What's our customer success strategy?"</li>
+            <li>"What employee benefits do we offer?"</li>
+          </ul>
+        </div>
       </div>
+      
       <div class="bg-[var(--clr-neutral-50)] border border-[var(--clr-primary)/20] rounded-xl p-6 shadow-sm">
-        <h3 class="text-2xl font-semibold mb-3">🚀 How to customise</h3>
+        <h3 class="text-2xl font-semibold mb-3">🚀 How this demo works</h3>
         <ol class="space-y-3 list-decimal list-inside text-base">
-          <li>Deploy the POC to a test platform (e.g. Vercel or Netlify).</li>
-          <li>Update <kbd>window.CHAT_CONFIG</kbd> with your API endpoint and Azure AD credentials.</li>
-          <li>Swap colours and logo by editing the <code>:root</code> variables or importing your corporate stylesheet.</li>
-          <li>Train the model with your knowledge base and redeploy.</li>
+          <li><strong>Guest Mode:</strong> Ask questions about TechCorp's public information like products, pricing, and support.</li>
+          <li><strong>Login:</strong> Click "🔐 Login" to authenticate with Azure AD and access confidential company information.</li>
+          <li><strong>Smart Context:</strong> The AI knows what information you can access based on your authentication status.</li>
+          <li><strong>Real RAG:</strong> All responses come from actual company documents, not hallucinated content.</li>
         </ol>
+        
+        <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h4 class="font-semibold text-blue-800 mb-2">💡 Try This Flow:</h4>
+          <ol class="text-sm text-blue-700 space-y-1 list-decimal list-inside">
+            <li>Ask "What products does TechCorp offer?" as a guest</li>
+            <li>Login with Azure AD</li>
+            <li>Ask "What's our revenue growth plan?" (confidential info)</li>
+            <li>Compare the different types of information available</li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -62,13 +89,34 @@
   <!-- ================ LIVE CHAT DEMO ================ -->
   <section id="chat" class="py-20 bg-[var(--clr-neutral-900)] text-white">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6">💬 Chat Interface</h2>
-      <p class="text-lg mb-10 max-w-2xl mx-auto">Interact with the assistant as a guest or sign in for contextual, secure responses.</p>
+      <h2 class="text-3xl font-bold mb-6">💬 Try the AI Assistant</h2>
+      <p class="text-lg mb-10 max-w-2xl mx-auto">Start as a guest to ask about public company information, or login to access confidential business data.</p>
       <div class="w-full max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-white text-[var(--clr-neutral-900)]">
         <!-- Chat widget placeholder -->
         <my-chat-widget></my-chat-widget>
       </div>
-      <p class="text-sm mt-4 opacity-90">This POC is configured in demo mode. Replace the config values to hook it to your own infrastructure.</p>
+      <p class="text-sm mt-4 opacity-90">This demo uses real enterprise documents to show how RAG-based AI assistants can provide accurate, source-based responses for different user access levels.</p>
+    </div>
+  </section>
+
+  <!-- ================ TECHNICAL INFO ================ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">Technical Implementation</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-3">🔍 RAG Architecture</h3>
+          <p class="text-base">Retrieval-Augmented Generation with vector databases for accurate, source-based responses from company documents.</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-3">🔐 Azure AD Integration</h3>
+          <p class="text-base">Enterprise-grade authentication with OAuth 2.0 + PKCE flow for secure access to confidential information.</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-3">⚡ Real-time Processing</h3>
+          <p class="text-base">FastAPI backend with ChromaDB vector storage for fast, contextual responses from structured knowledge bases.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -76,13 +124,14 @@
   <footer id="contact" class="bg-[var(--clr-primary-dark)] text-white py-10">
     <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
       <div>
-        <h3 class="text-xl font-semibold mb-2">Hikru</h3>
-        <p class="text-sm mb-4">Software development, AI, and technology consulting in Latin America.</p>
-        <p class="text-sm">© <span id="year"></span> Hikru. All rights reserved.</p>
+        <h3 class="text-xl font-semibold mb-2">Hikru Technology Solutions</h3>
+        <p class="text-sm mb-4">Enterprise AI and software development consulting. This demo showcases a production-ready RAG-based knowledge assistant.</p>
+        <p class="text-sm">© <span id="year"></span> Hikru. All rights reserved.</p>
       </div>
       <div>
-        <h4 class="text-lg font-medium mb-2">Contact Us</h4>
-        <p class="text-sm">info@hikrutech.com | +506‑0000‑0000</p>
+        <h4 class="text-lg font-medium mb-2">Contact & Source</h4>
+        <p class="text-sm mb-2">Email: info@hikrutech.com</p>
+        <p class="text-sm">GitHub: Built with FastAPI, Azure AD, ChromaDB, and OpenAI</p>
       </div>
     </div>
   </footer>
