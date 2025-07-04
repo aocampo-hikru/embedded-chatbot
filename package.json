@@ -1,0 +1,15 @@
+{
+  "name": "embedded-chatbot",
+  "version": "1.0.0",
+  "description": "Production-ready embedded chatbot with Azure AD authentication",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python -m uvicorn backend.app:app --reload --port 8000"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^4.14.0"
+  },
+  "keywords": ["chatbot", "azure-ad", "fastapi", "tailwindcss"],
+  "author": "Hikru",
+  "license": "MIT"
+}

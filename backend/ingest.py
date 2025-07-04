@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 from pathlib import Path
+from dotenv import load_dotenv
 
-from langchain.document_loaders import TextLoader
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.document_loaders import TextLoader
+from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
+
+# Load environment variables
+load_dotenv()
 
 PERSIST_DIR = "./data"
 DOCS_DIR = Path(__file__).resolve().parents[1] / "docs"
