@@ -27,6 +27,10 @@ API_CLIENT_ID = os.getenv("AZURE_API_CLIENT_ID")
 # Azure AD configuration
 JWKS_URL = f"https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys"
 
+# Path configuration
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+
 # Initialize FastAPI app
 app = FastAPI(title="Embedded Chatbot API", version="1.0.0")
 
@@ -51,7 +55,7 @@ def get_public_chain():
     """Initialize chain for public documents"""
     embeddings = OpenAIEmbeddings()
     vectorstore = Chroma(
-        persist_directory="./data",
+        persist_directory=os.path.join(parent_dir, "data"),
         embedding_function=embeddings
     )
     llm = ChatOpenAI(temperature=0.7, model="gpt-3.5-turbo")
@@ -79,7 +83,7 @@ def get_secure_chain():
     """Initialize chain for secure documents"""
     embeddings = OpenAIEmbeddings()
     vectorstore = Chroma(
-        persist_directory="./data-secure",
+        persist_directory=os.path.join(parent_dir, "data-secure"),
         embedding_function=embeddings
     )
     llm = ChatOpenAI(temperature=0.7, model="gpt-3.5-turbo")
@@ -155,12 +159,12 @@ def verify_token(authorization: str | None = Header(None)) -> dict:
 @app.get("/favicon.ico")
 async def get_favicon():
     """Serve favicon"""
-    return FileResponse("favicon.ico")
+    return FileResponse(os.path.join(parent_dir, "favicon.ico"))
 
 @app.get("/favicon.svg")
 async def get_favicon_svg():
     """Serve SVG favicon"""
-    return FileResponse("favicon.svg")
+    return FileResponse(os.path.join(parent_dir, "favicon.svg"))
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat_guest(request: ChatRequest):
@@ -209,28 +213,28 @@ async def health_check():
 @app.get("/demos/index.html")
 async def serve_demo_alt():
     """Serve the main demo page (alternative path)"""
-    return FileResponse("index.html")
+    return FileResponse(os.path.join(parent_dir, "index.html"))
 
 @app.get("/demos/my-chat.js")
 async def serve_chat_widget():
     """Serve the chat widget JavaScript"""
-    return FileResponse("my-chat.js")
+    return FileResponse(os.path.join(parent_dir, "my-chat.js"))
 
 @app.get("/my-chat.js")
 async def serve_chat_widget_root():
     """Serve the chat widget JavaScript from root"""
-    return FileResponse("my-chat.js")
+    return FileResponse(os.path.join(parent_dir, "my-chat.js"))
 
 # Mount static files for other assets
-app.mount("/static", StaticFiles(directory="."), name="static")
-app.mount("/dist", StaticFiles(directory="dist"), name="dist")
-app.mount("/", StaticFiles(directory=".", html=True), name="root")
+app.mount("/static", StaticFiles(directory=parent_dir), name="static")
+app.mount("/dist", StaticFiles(directory=os.path.join(parent_dir, "dist")), name="dist")
+app.mount("/", StaticFiles(directory=parent_dir, html=True), name="root")
 
 # Root endpoint - serve the demo page directly
 @app.get("/")
 async def root():
     """Serve the main demo page at root"""
-    return FileResponse("index.html")
+    return FileResponse(os.path.join(parent_dir, "index.html"))
 
 # API info endpoint
 @app.get("/api")

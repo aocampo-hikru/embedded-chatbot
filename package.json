@@ -4,7 +4,8 @@
   "description": "Production-ready embedded chatbot with Azure AD authentication",
   "main": "index.html",
   "scripts": {
-    "serve": "python -m uvicorn backend.app:app --reload --port 8000"
+    "serve": "python -m uvicorn backend.app:app --reload --port 8000",
+    "ingest": "cd backend && python ingest.py && python ingest_secure.py"
   },
   "dependencies": {
     "@azure/msal-browser": "^4.14.0"
